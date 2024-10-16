@@ -15,6 +15,6 @@ public class RemoteWorker extends Worker {
         if (monthHoursWorked.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("Hours worked cannot be negative.");
         }
-        return priceXHour.multiply(monthHoursWorked).add(FLAT_RATE_INTERNET);
+        return super.calculateSalary(monthHoursWorked).add(FLAT_RATE_INTERNET);
     }
 }

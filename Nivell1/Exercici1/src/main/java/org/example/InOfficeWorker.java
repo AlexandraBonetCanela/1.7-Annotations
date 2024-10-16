@@ -16,6 +16,6 @@ public class InOfficeWorker extends Worker{
         if (monthHoursWorked.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("Hours worked cannot be negative.");
         }
-        return priceXHour.multiply(monthHoursWorked).add(PETROL);
+        return super.calculateSalary(monthHoursWorked).add(PETROL);
     }
 }
