@@ -11,7 +11,11 @@ public class InOfficeWorker extends Worker{
     }
 
     @Override
-    public BigDecimal calculateSalary(BigDecimal monthHoursWorked) {
+    public BigDecimal calculateSalary(BigDecimal monthHoursWorked) throws IllegalArgumentException{
+
+        if (monthHoursWorked.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Hours worked cannot be negative.");
+        }
         return priceXHour.multiply(monthHoursWorked).add(petrol);
     }
 }
