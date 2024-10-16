@@ -2,7 +2,7 @@ package org.example;
 
 import java.math.BigDecimal;
 
-public class Worker {
+public abstract class Worker {
 
     protected String name;
     protected String surname;

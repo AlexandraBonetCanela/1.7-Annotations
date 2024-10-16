@@ -12,7 +12,10 @@ public class RemoteWorker extends Worker {
 
     @Override
     public BigDecimal calculateSalary(BigDecimal monthHoursWorked) {
-        return priceXHour.multiply(monthHoursWorked).add(FLAT_RATE_INTERNET);
+        if (monthHoursWorked.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Hours worked cannot be negative.");
+        }
+        return super.calculateSalary(monthHoursWorked).add(FLAT_RATE_INTERNET);
     }
 
     @Deprecated

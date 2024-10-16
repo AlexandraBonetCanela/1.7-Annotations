@@ -6,9 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         RemoteWorker remoteWorker = new RemoteWorker("Johan", "Abbot", new BigDecimal("12.50"));
-
         InOfficeWorker inOfficeWorker = new InOfficeWorker("Edward", "McMallan", new BigDecimal("12.50"));
-
         runDeprecatedMethods(remoteWorker, inOfficeWorker);
     }
 

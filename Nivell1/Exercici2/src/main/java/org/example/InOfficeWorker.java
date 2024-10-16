@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class InOfficeWorker extends Worker{
 
-    private static BigDecimal petrol = new BigDecimal("65.59");
+    private static final BigDecimal PETROL = new BigDecimal("65.59");
 
     public InOfficeWorker(String name, String surname, BigDecimal priceXHour) {
         super(name, surname, priceXHour);
@@ -12,7 +12,10 @@ public class InOfficeWorker extends Worker{
 
     @Override
     public BigDecimal calculateSalary(BigDecimal monthHoursWorked) {
-        return priceXHour.multiply(monthHoursWorked).add(petrol);
+        if (monthHoursWorked.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Hours worked cannot be negative.");
+        }
+        return super.calculateSalary(monthHoursWorked).add(PETROL);
     }
 
     @Deprecated
